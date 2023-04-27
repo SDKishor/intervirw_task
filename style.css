@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5361ff;
+  color: white;
+  border-bottom: 2px solid #fff;
+  padding-inline: 1.5rem;
+  height: 70px;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  margin: 0.5rem;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.brand-title a {
+  text-decoration: none;
+  display: block;
+  color: white;
+}
+
+.navbar-links {
+  height: 100%;
+  font-family: "PT Sans", sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+}
+
+.navbar-links li:hover {
+  background-color: cornflowerblue;
+}
+
+.toggle-button {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .toggle-button {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: absolute;
+    left: 0px;
+    top: 68px;
+    background-color: #5361ff;
+    height: 200px;
+    width: 100%;
+    animation: slide-left 1s forwards;
+  }
+
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .navbar-links ul li {
+    text-align: center;
+  }
+
+  .navbar-links ul li a {
+    padding: 0.7rem;
+    font-size: 1.2rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 68px;
+    background-color: #5361ff;
+    height: 200px;
+    animation: slide-right 1s forwards;
+  }
+
+  @keyframes slide-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes slide-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(101%);
+    }
+  }
+}
